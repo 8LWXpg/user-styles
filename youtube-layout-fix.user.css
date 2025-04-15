@@ -1,0 +1,79 @@
+/* ==UserStyle==
+@name           Youtube Layout Fix
+@namespace      github.com/8LWXpg/user-styles
+@version        1.0.0
+@description    Youtube grid and thumbnail size fix
+@author         8LWXpg
+@preprocessor   less
+
+@var range video-title-font-size "Video Title Font Size" [1.4, 0.9, 1.9, 0.1, 'rem']
+@var range video-title-line-height "Video Title Line Height" [2, 1.5, 2.5, 0.1, 'rem']
+@var range metadata-font-size "Metadata Font Size" [1.2, 0.7, 1.7, 0.1, 'rem']
+@var range metadata-line-height "Metadata Line Height" [1.8, 1.3, 2.3, 0.1, 'rem']
+@var range thumbnail-max-width "Thumbnail Max Width" [360, 300, 500, 10, 'px']
+
+@var range grid-items-per-row "Grid Items per Row" [4, 2, 8, 1]
+@var range grid-posts-per-row "Grid Posts per Row" [4, 2, 8, 1]
+@var range grid-slim-items-per-row "Grid Slim Items per Row" [6, 4, 10, 1]
+@var range grid-game-cards-per-row "Grid Game Cards per Row" [6, 4, 10, 1]
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+
+	/* Row display to contents */
+	ytd-rich-grid-row,
+	#contents.ytd-rich-grid-row {
+		display: contents !important;
+	}
+
+	/* Grid item count settings */
+	ytd-rich-grid-renderer,
+	html {
+		--ytd-rich-grid-items-per-row: @grid-items-per-row !important;
+		--ytd-rich-grid-posts-per-row: @grid-posts-per-row !important;
+		--ytd-rich-grid-slim-items-per-row: @grid-slim-items-per-row !important;
+		--ytd-rich-grid-game-cards-per-row: @grid-game-cards-per-row !important;
+	}
+
+	/* YouTube Home and Channel Page Margin Fix */
+	ytd-rich-item-renderer {
+		&[rendered-from-rich-grid][is-in-first-column] {
+			margin-left: calc(var(--ytd-rich-grid-item-margin)/2) !important;
+		}
+
+		&[is-slim-grid],
+		&[is-shorts-grid] {
+			&:first-of-type {
+				margin-left: auto !important;
+			}
+
+			&:last-of-type {
+				margin-right: auto !important;
+			}
+		}
+	}
+
+	/* YouTube Font Size Fix */
+	#video-title {
+		&.ytd-rich-grid-media,
+		&.ytd-rich-grid-slim-media {
+			font-size: @video-title-font-size !important;
+			line-height: @video-title-line-height !important;
+		}
+	}
+
+	#metadata-line.ytd-video-meta-block {
+		font-size: @metadata-font-size !important;
+		line-height: @metadata-line-height !important;
+	}
+
+	/* YouTube Search Results Video Thumb Size Fix */
+	ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-thumbnail.ytd-video-renderer,
+	ytd-video-renderer[use-bigger-thumbs] ytd-thumbnail.ytd-video-renderer,
+	ytd-radio-renderer[use-bigger-thumbs] ytd-thumbnail.ytd-radio-renderer,
+	#avatar-section.ytd-channel-renderer,
+	ytd-radio-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-playlist-thumbnail.ytd-radio-renderer,
+	ytd-playlist-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-playlist-thumbnail.ytd-playlist-renderer,
+	a.yt-lockup-view-model-wiz__content-image {
+		max-width: @thumbnail-max-width !important;
+	}
+}
