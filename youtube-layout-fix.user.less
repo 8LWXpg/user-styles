@@ -54,6 +54,7 @@
 
 	/* YouTube Font Size Fix */
 	#video-title {
+
 		&.ytd-rich-grid-media,
 		&.ytd-rich-grid-slim-media {
 			font-size: @video-title-font-size !important;
@@ -67,13 +68,11 @@
 	}
 
 	/* YouTube Search Results Video Thumb Size Fix */
-	ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-thumbnail.ytd-video-renderer,
-	ytd-video-renderer[use-bigger-thumbs] ytd-thumbnail.ytd-video-renderer,
-	ytd-radio-renderer[use-bigger-thumbs] ytd-thumbnail.ytd-radio-renderer,
+	ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-thumbnail.ytd-video-renderer,
 	#avatar-section.ytd-channel-renderer,
-	ytd-radio-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-playlist-thumbnail.ytd-radio-renderer,
-	ytd-playlist-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-playlist-thumbnail.ytd-playlist-renderer,
-	a.yt-lockup-view-model-wiz__content-image {
+	ytd-radio-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-playlist-thumbnail.ytd-radio-renderer,
+	ytd-playlist-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-playlist-thumbnail.ytd-playlist-renderer,
+	a.yt-lockup-view-model__content-image {
 		max-width: @thumbnail-max-width !important;
 	}
 }
