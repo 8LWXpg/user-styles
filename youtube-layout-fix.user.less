@@ -75,4 +75,9 @@
 	a.yt-lockup-view-model__content-image {
 		max-width: @thumbnail-max-width !important;
 	}
+
+	/* Weird line break on first video row */
+	ytd-rich-section-renderer:has(div:empty) {
+		display: none;
+	}
 }
