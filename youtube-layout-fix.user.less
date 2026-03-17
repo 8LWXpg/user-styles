@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Youtube Layout Fix
 @namespace      github.com/8LWXpg/user-styles
-@version        1.0.1
+@version        1.1.0
 @description    Youtube grid and thumbnail size fix
 @author         8LWXpg
 @preprocessor   less
@@ -16,6 +16,7 @@
 @var range grid-posts-per-row "Grid Posts per Row" [4, 2, 8, 1]
 @var range grid-slim-items-per-row "Grid Slim Items per Row" [6, 4, 10, 1]
 @var range grid-game-cards-per-row "Grid Game Cards per Row" [6, 4, 10, 1]
+@var checkbox hideMenbershipVideos "Hide menbership videos" 1
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
 
@@ -68,5 +69,12 @@
 	/* Weird line break on first video row */
 	ytd-rich-section-renderer:has(div:empty) {
 		display: none;
+	}
+
+	/* Video with manbership icon */
+	ytd-rich-item-renderer:has(badge-shape:is(.yt-badge-shape--membership, .yt-badge-shape--commerce)) {
+		& when (@hideMenbershipVideos =1) {
+			display: none !important;
+		}
 	}
 }
