@@ -1,0 +1,34 @@
+/* ==UserStyle==
+@name           IEEEXplore Center Document
+@namespace      github.com/8LWXpg/user-styles
+@version        1.0.0
+@description    A new userstyle
+@author         8LWXpg
+@preprocessor   less
+
+@var range document-padding "Document Padding" [120, 20, 300, 10, 'pt']
+==/UserStyle== */
+@-moz-document domain("ieeexplore.ieee.org") {
+    .document-main-content-container,
+    .document-main {
+        width: 100% !important;
+    }
+
+    .document-main {
+        padding: 0 @document-padding;
+    }
+
+    .ng-document,
+    .document-main-body {
+        display: block;
+    }
+
+    .document-main-content-container,
+    .document-main-left-trail {
+        max-width: 100%;
+    }
+
+    .document-main-left-trail-content {
+        text-align: justify;
+    }
+}
