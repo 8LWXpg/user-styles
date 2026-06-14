@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Youtube Layout Fix
 @namespace      github.com/8LWXpg/user-styles
-@version        1.1.0
+@version        1.1.2
 @description    Youtube grid and thumbnail size fix
 @author         8LWXpg
 @preprocessor   less
@@ -44,7 +44,6 @@
 
 	/* YouTube Font Size Fix */
 	#video-title {
-
 		&.ytd-rich-grid-media,
 		&.ytd-rich-grid-slim-media {
 			font-size: @video-title-font-size !important;
@@ -58,10 +57,10 @@
 	}
 
 	/* YouTube Search Results Video Thumb Size Fix */
-	ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-thumbnail.ytd-video-renderer,
+	ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-thumbnail.ytd-video-renderer,
 	#avatar-section.ytd-channel-renderer,
-	ytd-radio-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-playlist-thumbnail.ytd-radio-renderer,
-	ytd-playlist-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-playlist-thumbnail.ytd-playlist-renderer,
+	ytd-radio-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-playlist-thumbnail.ytd-radio-renderer,
+	ytd-playlist-renderer[use-bigger-thumbs][bigger-thumbs-style = "BIG"] ytd-playlist-thumbnail.ytd-playlist-renderer,
 	a.ytLockupViewModelContentImage {
 		max-width: @thumbnail-max-width !important;
 	}
@@ -72,8 +71,8 @@
 	}
 
 	/* Video with manbership icon */
-	ytd-rich-item-renderer:has(badge-shape:is(.yt-badge-shape--membership, .yt-badge-shape--commerce)) {
-		& when (@hideMenbershipVideos =1) {
+	ytd-rich-item-renderer:has(badge-shape:is(.ytBadgeShapeCommerce)) {
+		& when (@hideMenbershipVideos = 1) {
 			display: none !important;
 		}
 	}
